@@ -21,7 +21,7 @@ c_table = dynamodb.Table('Campaigns')
 a_table = dynamodb.Table('Admin')
 
 # Optional SNS Topic ARN (set in environment)
-SNS_TOPIC_ARN = os.getenv("SNS_TOPIC_ARN", "")
+SNS_TOPIC_ARN = os.getenv("SNS_TOPIC_ARN", "arn:aws:sns:us-east-1:539247489202:aws_ai_marketing_platform")
 
 def send_sns_notification(subject, message):
     if not SNS_TOPIC_ARN:
@@ -197,4 +197,5 @@ def admin_home():
 # --- Run Server ---
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
