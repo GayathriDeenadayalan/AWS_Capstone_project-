@@ -16,9 +16,9 @@ dynamodb = boto3.resource('dynamodb', region_name=REGION)
 sns = boto3.client('sns', region_name=REGION)
 
 # DynamoDB tables (must exist)
-users_table = dynamodb.Table('Users')
-campaigns_table = dynamodb.Table('Campaigns')
-admin_table = dynamodb.Table('Admin')
+u_table = dynamodb.Table('Users')
+c_table = dynamodb.Table('Campaigns')
+a_table = dynamodb.Table('Admin')
 
 # Optional SNS Topic ARN (set in environment)
 SNS_TOPIC_ARN = os.getenv("SNS_TOPIC_ARN", "")
@@ -197,3 +197,4 @@ def admin_home():
 # --- Run Server ---
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
